@@ -1,0 +1,71 @@
+===================================================================
+REPEAT  Electrostatic potential fitted charges for periodic systems
+            Version 2.0 updated: Nov. 2022
+
+            Carlos Campañá and Tom Woo 
+
+ Please reference:
+    Campañá et al. J. Chem. Theory Comput. 2009, 5, 10, 2866–2878
+		    https://doi.org/10.1021/ct9003405
+
+===================================================================
+
+Input Settings read from: repeat.input 
+=========================================
+ Cube file: h2o.cube
+ van der Waals scaling factor: 1.00
+ no symmetry imposed
+ Periodic system calculation
+ radial cut_off (Bohr): 20.00
+ maximum vdW factor: 1000.00
+ net charge of system (e): 0.00
+
+
+System Details read from cube file
+==========================================
+  Cell Vectors (Bohr)
+  -----------------------------
+    0.2362    0.0000    0.0000 
+    0.0000    0.2362    0.0000 
+    0.0000    0.0000    0.2362 
+  
+  Atom positions (Bohr)
+  -----------------------------------------------
+    H         5.6736        5.6761        5.6692  
+    H         7.3949        7.9976        5.6692  
+    O         5.6288        7.5076        5.6692  
+
+==========================================
+Real box volume = 843.541702 bohrs^3 
+Total # of valid grid points = 48977 
+ESP sum over full grid = -2.770860e-04 
+ESP sum over valid grid points = -1.338245e+03 
+Cutoff radius = 20.000000 
+Width of Gaussian in Ewald summation (alpha) = 0.024674
+
+======================================================= 
+charges being fit...
+    -this can take minutes to hours depending on the 
+     size of the system and number of grid points.
+
+Fitted charges ordered as within the cube file
+----------------------------------------------
+Charge 1 of type 1 = 0.379338
+Charge 2 of type 1 = 0.373522
+Charge 3 of type 8 = -0.752861
+
+Atomic positions in Ang with Fitted charges 
+  type        x (Ang)       y (Ang)       z (Ang)    charge
+------------------------------------------------------------
+    H         3.0024        3.0036        3.0000      0.3793
+    H         3.9132        4.2321        3.0000      0.3735
+    O         2.9786        3.9729        3.0000     -0.7529
+------------------------------------------------------------
+
+
+ESP Coulomb average = 1.206209e-15
+ESP QM average = 2.767204e-17
+RMS Error of the potential = 4.193978e-03
+
+Normal Termination of REPEAT
+

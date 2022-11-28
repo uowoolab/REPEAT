@@ -1,0 +1,27 @@
+Conversion utility for making REPEAT compatible cube files from SIESTA output.
+
+This program is a modified version of the utilities distributed with
+SIESTA. See the Contrib/APostnikov folder for more details.
+Modifiactions are by Eugene Kadantsev for the research group of Tom Woo:
+http://titan.chem.uottawa.ca/
+
+Installation
+============
+
++ Untar the source
++ Modify `Makefile` to the same compilation options as your SIESTA
++ `make siesta2repeat`
+
+Running
+=======
+
++ Run SIESTA calculation with `SaveElectrostaticPotential .true.` and an
+  appropriate mesh
++ Run `siesta2repeat` in the directory that your calculation ran. This
+  directory must contain the `.VH` and `.XV` files.
++ Three inputs need to be typed or piped in:
+    + basename of the calculation i.e. for `structure.XV`, type
+      `structure`
+    + origin point of the grid e.g. `0.0 0.0 0.0`
+    + required grid size e.g. `128 82 116`
+

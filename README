@@ -1,0 +1,41 @@
+==========================================================================
+                       REPEAT version 2.0
+==========================================================================
+
+This is an updated C/C++ version of the REPEAT code originally written by 
+Carlos Campana. Please reference:
+
+    Campañá et al. J. Chem. Theory Comput. 2009, 5, 10, 2866–2878
+            https://doi.org/10.1021/ct9003405
+
+
+Contents:
+
+Source   
+   This directory contains the source code, with a sample makefiles for the 
+   Intel and gnu compilers.  The Gnu compiler can also be used. A README file 
+   in that directory describes more details of the building process.
+
+Examples   
+   This directory contains sample input files and output files for one to check
+   that their build works.
+
+CLAPACK-3.2.1
+   This is the CLAPACK linear algebra library that REPEAT uses to solve the 
+   system of equations. Compiled library files built on a x86-64 Linux machine
+   are included. If these don't work, then the library will have to be
+   rebuilt on the user's machine.
+
+Converters
+   This contains some utility files to convert files to the CUBE file format
+   that REPEAT uses to read the electrostatic potential(ESP) of the system. 
+   For example, the periodic DFT code VASP stores the ESP in the LOCPOT file 
+   (with the proper input settings). There is a Python script that converts
+   this to a CUBE file.
+
+bin
+   This directory contains a g++ compiled version of the repeat exectuable
+   that was compiled on an AMD Epyc(2nd Gen) system doesn't need any Intel 
+   libraries to run.  
+   
+   

@@ -1,0 +1,60 @@
+=============================================================================
+          REPEAT version 2.0
+
+      Installation instructions
+=============================================================================
+
+This is an updated C/C++ version of the REPEAT code originally written by 
+Carlos Campana. Please reference:
+
+    Campañá et al. J. Chem. Theory Comput. 2009, 5, 10, 2866–2878
+            https://doi.org/10.1021/ct9003405
+
+
+Compiling the code:
+-------------------
+
+This code should work with both old and new GCC and Intel compilers.
+
+For solving the linear system of equations for the fit, the code requires 
+linking the external fortran library CLAPACK, which can be obtained and 
+installed using the instructions provided at: http://www.netlib.org/clapack/.  
+CLAPACK version 3.2.1 has been included in this archive for your 
+convenience. You will have to compile and install CLAPACK as per the
+instructions provided by the library developers.
+
+A Makefile is included in the sources in this directory.  There is a Makefile
+for the Intel compiler and the gnu g++ compiler. We have done some optimizations
+for the Intel version of REPEAT, which we find to be at least 30% faster. (If 
+your CPU supports the AVX512 instruction set, one can achieve significantly 
+more speedups.) It is the responsibility of the user to specify 
+the compilation flags listed at the beginning of the file. Specifically the 
+INCLUDE_DIRS, LIB_DIRS, and LIBS flags should point to the appropriate 
+directories in the CLAPACK package. See the Makefile comments for further 
+details.  Once the proper libraries are linked, type
+
+> make all
+
+The default makefile will use openMP for shared-memory parallization. To 
+control the number cpu-cores it uses one must set the OMP_NUM_THREADS
+environment variable.  In bash shell you can do this with the command: 
+
+export OMP_NUM_THREADS=N 
+
+where 'N' is the number of threads/cores you want to use.
+
+The Examples directories provide the REPEAT input and electrostatic
+potential (ESP) files for you to check that your compiled code is
+getting the same results that we get.
+
+You can simply use the command to run REPEAT:
+
+> {path to executable}/repeat.x > new.out
+
+What is important is that the charges one gets are the same as with the 
+sample outputs that we have called output.reference.
+
+There is a 'conversion' directory with various conversion programs to convert 
+the ESP files from various programs to the CUBE format that REPEAT requires.
+
+

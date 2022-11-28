@@ -1,0 +1,22 @@
+Input ESP file name in cube format
+ h2o.cube
+Fit molecular(0) or periodic(1:default) system?
+ 1
+van der Waals scaling factor (default = 1.0)
+ 1.00
+Apply RESP-like harmonic restraints?, no(0:default), yes(1)
+ 0
+Read cutoff radius? no(0), yes(1:default)
+ 1
+If flag above=1 provide R_cutoff next (in Bohrs)
+ 20.00000
+Apply symmetry constraints? no(0:default), yes(1)
+ 1
+Use QEq-type restraints? no(0:default), yes(1)
+ 0
+If flag above=1 then provide weight next
+ 0.00000
+van der Waals max scaling factor
+ 1000
+System total charge
+ 0.00

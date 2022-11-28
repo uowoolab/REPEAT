@@ -1,0 +1,11 @@
+In this directory files corresponding to a water molecule in a 
+periodic box are provided. See the manual for specific details
+related to each one of the files.
+
+The file "charges_no_symm.out" includes the predictions for the charges
+if all the atoms are considered as independent variables within the fit.
+
+The file "charges_symm.out" corresponds to the predictions when the two
+H atoms are forced to have the same charge. The "symmetry.input" was used
+for this purpose.
+
