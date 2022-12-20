@@ -56,9 +56,9 @@ void set_solver_data(cube_str *CUBE, int grid_points, double alpha) {
      double **inverse_term, *inverse_term_level, **matrix_trans, *vector_trans;
 
      // Memory allocation
-     inverse_term = create_2d_double_array(grid_points,CUBE->n_atoms,"For matrix");
+     inverse_term = create_2d_double_array((long)grid_points,(long)CUBE->n_atoms,"For matrix");
      inverse_term_level = create_1d_double_array(CUBE->n_atoms,"For matrix");
-     matrix_trans = create_2d_double_array(CUBE->n_atoms+1,CUBE->n_atoms+1,"Temp matrix");
+     matrix_trans = create_2d_double_array((long)CUBE->n_atoms+1,(long)CUBE->n_atoms+1,"Temp matrix");
      vector_trans = create_1d_double_array(CUBE->n_atoms+1,"temp vector");     
 
      // Initializing temporary arrays 

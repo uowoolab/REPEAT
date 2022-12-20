@@ -24,7 +24,7 @@ void set_linear_matrix_vec(cube_str* CUBE, double **matrix_trans, double *vector
     // Memory allocation
     weights = create_1d_double_array(CUBE->n_atoms,"");
     weights_tmp = create_1d_double_array(CUBE->n_atoms,"");
-    matrix_tmp = create_2d_double_array(CUBE->n_atoms+1,CUBE->n_atoms+1,"");
+    matrix_tmp = create_2d_double_array((long)CUBE->n_atoms+1,(long)CUBE->n_atoms+1,"");
     vector_tmp = create_1d_double_array(CUBE->n_atoms+1,"");
 
     for(j_atom=0;j_atom<CUBE->n_atoms;j_atom++) {
@@ -97,7 +97,7 @@ void set_linear_matrix_vec(cube_str* CUBE, double **matrix_trans, double *vector
       }
     }
 
-    matrix_solv = create_2d_double_array(CUBE->n_atoms+1,CUBE->n_atoms+1,"Matrix for solver");
+    matrix_solv = create_2d_double_array((long)CUBE->n_atoms+1,(long)CUBE->n_atoms+1,"Matrix for solver");
     vector_solv = create_1d_double_array(CUBE->n_atoms+1,"R.H.S vector for solver");
     // Loading the final matrix and vector for the linear solver
     #pragma ivdep

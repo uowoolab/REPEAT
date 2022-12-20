@@ -1,11 +1,15 @@
 CC = g++
 CFLAGS = -Wall -g -O3
+CFLAGS = -g -Ofast -finline-limit=200000 -fsanitize=address -fsanitize=undefined -fno-sanitize-recover=all -fsanitize=float-divide-by-zero -fsanitize=float-cast-overflow -fno-sanitize=null -fno-sanitize=alignment
+CFLAGS = -g -Ofast -finline-limit=200000 
 CLAPACK_ROOT = ../CLAPACK-3.2.1
 # specify directory to header files in CLAPACK
 INCLUDE_DIRS = $(CLAPACK_ROOT)/INCLUDE 
 # include f2clib dir here
 LIB_DIRS = $(CLAPACK_ROOT)/F2CLIBS
 # include lapack, blas and f2c libs here.
+#LIBS = /usr/lib64/libasan.so.5.0.0 \
+#
 LIBS = $(CLAPACK_ROOT)/lapack_LINUX.a \
        $(CLAPACK_ROOT)/blas_LINUX.a \
        $(CLAPACK_ROOT)/F2CLIBS/libf2c.a

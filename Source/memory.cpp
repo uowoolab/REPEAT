@@ -40,12 +40,12 @@ void destroy_1d_double_array(double *array) {
 }
 ////////////////////////////////////////////////////////////////////////
 /* Dynamic allocation of a 2d double array */
-double **create_2d_double_array(int n1, int n2, const char *name) {
+double **create_2d_double_array(long n1, long n2, const char *name) {
        
        double *data = (double *) smalloc(n1*n2*sizeof(double),name);
        double **array = (double **) smalloc(n1*sizeof(double *),name);
 
-       int order = 0, i;
+       long order = 0, i;
        #pragma code_align 64
        for (i = 0; i < n1; i++) {
            array[i] = &data[order];

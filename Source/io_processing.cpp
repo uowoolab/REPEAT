@@ -13,7 +13,7 @@ void read_input_file(void) {
      cube_file_name = create_1d_char_array(MAXLINE,"cube file name");
      line = create_1d_char_array(MAXLINE,"just a line");
      file_name = create_1d_char_array(MAXLINE,"input param file");
-     file_name = "repeat.input";
+     file_name = (char *) "repeat.input";
 
      default_param_file = fopen(file_name,"r");
      if(default_param_file != NULL) {       
@@ -72,7 +72,7 @@ void read_input_file(void) {
        } 
        if (QEq_restraint > 0) {
            if (fit_RESP > 0) {
-               error_message("QEq and RESP restraints should not be applied at the same time.");
+               error_message((char *)"QEq and RESP restraints should not be applied at the same time.");
            }
            printf(" QEq restraints applied to charges \n");
            printf("  weighting for QEq restraints: %.4f\n", lambda_prime);
@@ -126,7 +126,7 @@ void read_input_file(void) {
        printf("  repeat.input file with default input parameters created.\n\n");
        fclose(default_param_file);
 
-       error_message("repeat.input file not found. One with default values created.");
+       error_message((char *)"repeat.input file not found. One with default values created.");
 
 
      }
@@ -147,7 +147,7 @@ void read_cube_file(cube_str* CUBE) {
      line = create_1d_char_array(MAXLINE,"just a line");
      CUBE->n_grid = create_1d_int_array(NDIM,"grid resolution");
      CUBE->axis_zero = create_1d_double_array(NDIM,"origin vector");
-     CUBE->axis_vector = create_2d_double_array(NDIM,NDIM,"axis vectors");
+     CUBE->axis_vector = create_2d_double_array((long)NDIM,(long)NDIM,"axis vectors");
  
      cube_file = fopen(cube_file_name,"r");
      if(cube_file != NULL) {
@@ -177,9 +177,9 @@ void read_cube_file(cube_str* CUBE) {
        CUBE->atom_index = \
        create_1d_int_array(CUBE->n_atoms,"atom types");
        CUBE->atom_pos =  \
-       create_2d_double_array(CUBE->n_atoms,NDIM,"atomic positions");      
-       CUBE->V_pot = create_2d_double_array(CUBE->n_grid[0]*CUBE->n_grid[1], \
-       CUBE->n_grid[2],"ESP grid tabulation");
+       create_2d_double_array((long)CUBE->n_atoms,(long)NDIM,"atomic positions");      
+       CUBE->V_pot = create_2d_double_array((long)CUBE->n_grid[0]*CUBE->n_grid[1], \
+       (long)CUBE->n_grid[2],"ESP grid tabulation");
 
        // Reading atomic info
        for(i_atom=0;i_atom<CUBE->n_atoms;i_atom++){
@@ -239,7 +239,7 @@ void read_cube_file(cube_str* CUBE) {
 
        printf("ESP Cube file: %s could not be open!\n", cube_file_name);
 
-       error_message("Cannot read your ESP Cube file!");
+       error_message((char *)"Cannot read your ESP Cube file!");
      }
 
      // Releasing memory
@@ -381,7 +381,7 @@ void read_RESP_data_file(void) {
          printf("RESP parameter file RESP_parameters.input with empty values has been created.\n");
          fclose(resp_file);
 
-         error_message("RESP_parameters.input file not found. One with empty values created.");
+         error_message((char *)"RESP_parameters.input file not found. One with empty values created.");
 
        }
 
@@ -545,7 +545,7 @@ void read_QEq_data_file(void) {
          fprintf(QEq_file,"%s %f %f\n", "Bh" ,0.126782 ,0.180068);
          fclose(QEq_file);
 
-         error_message("QEq_parameters.input file not found. One with default values created.");
+         error_message((char *)"QEq_parameters.input file not found. One with default values created.");
 
        }
      } else {
@@ -630,7 +630,7 @@ void read_connectivity_file(cube_str *CUBE) {
          printf("A sample connectivity file symmetry.input for H2O has been created.\n ");
          printf("Modify given your needs.  See manual for more details\n");
 
-         error_message("Symmetry constraints require a symmetry.input file.");
+         error_message((char *)"Symmetry constraints require a symmetry.input file.");
        }
      }
      //JPS -topmost now, try removing this....
@@ -646,7 +646,7 @@ void output_ESP_grid_data(double **inverse_term,double *inverse_term_level) {
      char *file_name;
      FILE *Coul_ESP_file;
 
-     file_name = "Coul_ESP.dat";
+     file_name = (char *)"Coul_ESP.dat";
      V_coul = create_1d_double_array(counter_grid,"");
 
      avrg_QM_ESP = 0.0;
@@ -677,7 +677,7 @@ void output_ESP_grid_data(double **inverse_term,double *inverse_term_level) {
        fclose(Coul_ESP_file);
      } else {
 
-       error_message("Cannot write Coulomb ESP grid data to file: Coul_ESP.dat");
+       error_message((char *)"Cannot write Coulomb ESP grid data to file: Coul_ESP.dat");
 
      }
      destroy_1d_double_array(V_coul);

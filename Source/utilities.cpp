@@ -53,9 +53,9 @@ void compute_box_vectors(cube_str *CUBE) {
 
      // Memory allocation
      real_box_vector = \
-     create_2d_double_array(NDIM,NDIM,"Real space box vectors");
+     create_2d_double_array((long)NDIM,(long)NDIM,"Real space box vectors");
      recip_box_vector = \
-     create_2d_double_array(NDIM,NDIM,"Reciprocal space box vectors");
+     create_2d_double_array((long)NDIM,(long)NDIM,"Reciprocal space box vectors");
      a = create_1d_double_array(NDIM,"tmp");
      b = create_1d_double_array(NDIM,"tmp");
      c = create_1d_double_array(NDIM,"tmp");

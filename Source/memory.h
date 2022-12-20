@@ -5,7 +5,7 @@ void *smalloc(long int,const char *);
 void sfree(void *);
 double *create_1d_double_array(int,const char *); 
 void destroy_1d_double_array(double *);
-double **create_2d_double_array(int,int,const char *);
+double **create_2d_double_array(long,long,const char *);
 void destroy_2d_double_array(double **);
 int *create_1d_int_array(int,const char *);
 void destroy_1d_int_array(int *);

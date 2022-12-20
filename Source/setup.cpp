@@ -126,12 +126,12 @@ int setup_grid_potential(cube_str* CUBE) {
      char *file_name;
      FILE *ESP_file;   
  
-     file_name = "grid_ESP.dat";
+     file_name = (char *) "grid_ESP.dat";
      // Memory allocation
      V_pot_grid = \
      create_1d_double_array(CUBE->n_grid[0]*CUBE->n_grid[1]*CUBE->n_grid[2],"");
      grid_pos = \
-     create_2d_double_array(CUBE->n_grid[0]*CUBE->n_grid[1]*CUBE->n_grid[2],NDIM,"");
+     create_2d_double_array((long)(CUBE->n_grid[0]*CUBE->n_grid[1]*CUBE->n_grid[2]),(long)NDIM,"");
      vdwRMAX = create_1d_double_array(CUBE->n_atoms,"");
      
      for(i_atom=0;i_atom<CUBE->n_atoms;i_atom++) {
@@ -244,7 +244,7 @@ int setup_grid_potential(cube_str* CUBE) {
 
      } else {
 
-       char* message = "Cannot write ESP grid data!!!";
+       char* message = (char *) "Cannot write ESP grid data!!!";
        error_message(message);
 
 
